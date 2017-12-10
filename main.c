@@ -9,14 +9,24 @@
 
 #include "cmd.h"
 #include "common.h"
+#include "init.h"
 
-extern void gpio_init();
-extern void spi_init();
+//extern void gpio_init();
+//extern void spi_init();
+
+static void sys_init(){
+    init_fn_t *fn;
+
+    for(fn=&__start_init_sec; fn<&__stop_init_sec; fn++){
+        (*fn)();
+    }
+}
 
 int main(){
    
-    gpio_init();
-    spi_init();
+//    gpio_init();
+//    spi_init();
+    sys_init();
 
     dispatch_cmds(GPIO_HIGH);
     dispatch_cmds(SPI_START);

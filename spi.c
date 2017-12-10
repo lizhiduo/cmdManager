@@ -9,7 +9,7 @@
 
 #include "cmd.h"
 #include "common.h"
-
+#include "init.h"
 
 static int spi_start(){
     
@@ -33,4 +33,6 @@ CMD spi_cmds[] = {
 void spi_init(){
    register_cmds(spi_cmds, ARRAY_SIZE(spi_cmds)); 
 }
+
+DECLARE_INIT(spi_init);
 

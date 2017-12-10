@@ -9,7 +9,7 @@
 
 #include "cmd.h"
 #include "common.h"
-
+#include "init.h"
 
 static int gpio_high(){
     
@@ -34,5 +34,5 @@ void gpio_init(){
    register_cmds(gpio_cmds, ARRAY_SIZE(gpio_cmds)); 
 }
 
-//DECLARE_INIT(gpio_init);
+DECLARE_INIT(gpio_init);
 
