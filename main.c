@@ -5,7 +5,8 @@
 	> Created Time: 2017年12月10日 星期日 13时18分15秒
  ************************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 
 #include "cmd.h"
 #include "common.h"
@@ -30,6 +31,9 @@ int main(){
 
     dispatch_cmds(GPIO_HIGH);
     dispatch_cmds(SPI_START);
-    
+    while(1)
+    {
+        sleep(2);
+    }
     return 0;
 }

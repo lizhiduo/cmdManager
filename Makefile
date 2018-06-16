@@ -3,11 +3,14 @@ CFLAGS=
 
 TAGET=test
 
-SRCS=main.c cmd.c gpio.c spi.c
+#SRCS=$(wildcard *.c)
+#SRCS=main.c cmd.c gpio.c spi.c
+SRCS=main.c cmd.c spi.c gpio.c
 
 OBJS=$(SRCS:.c=.o)
 
 $(TAGET) : $(OBJS)
+	@echo $(OBJS)
 	$(CC) -o $@ $^
 
 clean:

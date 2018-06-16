@@ -31,7 +31,8 @@ CMD gpio_cmds[] = {
 };
 
 void gpio_init(){
-   register_cmds(gpio_cmds, ARRAY_SIZE(gpio_cmds)); 
+    printf("[%s][%s]\n", __FILE__, __func__);
+    register_cmds(gpio_cmds, ARRAY_SIZE(gpio_cmds)); 
 }
 
 DECLARE_INIT(gpio_init);

@@ -31,7 +31,8 @@ CMD spi_cmds[] = {
 };
 
 void spi_init(){
-   register_cmds(spi_cmds, ARRAY_SIZE(spi_cmds)); 
+    printf("[%s][%s]\n", __FILE__, __func__); 
+    register_cmds(spi_cmds, ARRAY_SIZE(spi_cmds)); 
 }
 
 DECLARE_INIT(spi_init);

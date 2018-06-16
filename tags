@@ -1,0 +1,47 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARRAY_SIZE	common.h	11;"	d
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=$/;"	m
+CMD	cmd.h	/^}CMD;$/;"	t	typeref:struct:tag_cmd
+CMDCODE	common.h	/^}CMDCODE;$/;"	t	typeref:enum:tag_cmdCode
+CMDINFO	cmd.h	/^}CMDINFO;$/;"	t	typeref:struct:tag_cmdInfo
+DECLARE_INIT	init.h	13;"	d
+GPIO_HIGH	common.h	/^    GPIO_HIGH = 0x10,$/;"	e	enum:tag_cmdCode
+GPIO_LOW	common.h	/^    GPIO_LOW  = 0x11,$/;"	e	enum:tag_cmdCode
+MAX_CMD_CNT	cmd.h	13;"	d
+OBJS	Makefile	/^OBJS=$(SRCS:.c=.o)$/;"	m
+SPI_START	common.h	/^    SPI_START = 0x20,$/;"	e	enum:tag_cmdCode
+SPI_STOP	common.h	/^    SPI_STOP  = 0x21,$/;"	e	enum:tag_cmdCode
+SRCS	Makefile	/^SRCS=main.c cmd.c spi.c gpio.c$/;"	m
+TAGET	Makefile	/^TAGET=test$/;"	m
+_CMD_H	cmd.h	9;"	d
+_COMMON_H	common.h	9;"	d
+_INIT_H	init.h	9;"	d
+cmdCode	cmd.h	/^    CMDCODE cmdCode;$/;"	m	struct:tag_cmd
+cmds	cmd.h	/^    CMD cmds[MAX_CMD_CNT];$/;"	m	struct:tag_cmdInfo
+count	cmd.h	/^    int count;$/;"	m	struct:tag_cmdInfo
+dispatch_cmds	cmd.c	/^int dispatch_cmds(CMDCODE cmdCode){$/;"	f
+func	cmd.h	/^    int (*func)();$/;"	m	struct:tag_cmd
+gCmd	cmd.h	/^CMDINFO gCmd;$/;"	v
+gpio_cmds	gpio.c	/^CMD gpio_cmds[] = {$/;"	v
+gpio_high	gpio.c	/^static int gpio_high(){$/;"	f	file:
+gpio_init	gpio.c	/^DECLARE_INIT(gpio_init);$/;"	v
+gpio_init	gpio.c	/^void gpio_init(){$/;"	f
+gpio_low	gpio.c	/^static int gpio_low(){$/;"	f	file:
+init_fn_t	init.h	/^typedef void (*init_fn_t)(void);$/;"	t
+main	main.c	/^int main(){$/;"	f
+register_cmds	cmd.c	/^int register_cmds(CMD cmds[], int num){$/;"	f
+spi_cmds	spi.c	/^CMD spi_cmds[] = {$/;"	v
+spi_init	spi.c	/^DECLARE_INIT(spi_init);$/;"	v
+spi_init	spi.c	/^void spi_init(){$/;"	f
+spi_start	spi.c	/^static int spi_start(){$/;"	f	file:
+spi_stop	spi.c	/^static int spi_stop(){$/;"	f	file:
+sys_init	main.c	/^static void sys_init(){$/;"	f	file:
+tag_cmd	cmd.h	/^typedef struct tag_cmd{$/;"	s
+tag_cmdCode	common.h	/^typedef enum tag_cmdCode{$/;"	g
+tag_cmdInfo	cmd.h	/^typedef struct tag_cmdInfo{$/;"	s
