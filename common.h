@@ -9,7 +9,7 @@
 #define _COMMON_H
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
-
+/*
 typedef enum tag_cmdCode{
     //gpio
     GPIO_HIGH = 0x10,
@@ -20,5 +20,5 @@ typedef enum tag_cmdCode{
     SPI_STOP  = 0x21,
 
 }CMDCODE;
-
+*/
 #endif

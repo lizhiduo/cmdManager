@@ -10,27 +10,51 @@
 
 #include "cmd.h"
 
+typedef struct tagCMD_INFO
+{
+    CMD cmds[MAX_CMD_CNT * CMD_BASE];
+    int count;
+}CMD_INFO, *PCMD_INFO;
+
+static CMD_INFO gCmd;
+
 
 int register_cmds(CMD cmds[], int num){
     int i = 0;
+    int code = 0;
+    int cmdIndex = 0;
+    PCMD_INFO pobj = &gCmd;
 
-    if(num>0 || (num + gCmd.count)<MAX_CMD_CNT){
-        memcpy((unsigned char*)&gCmd.cmds[gCmd.count], (unsigned char*)cmds, sizeof(CMD)*num);
-        gCmd.count += num;
+    if (0 == cmds || num <=0)
+    {
+        printf("no cmd..\n");
+        return -1;
     }
 
+    for (i = 0; i < num; ++i)
+    {
+        code = cmds[i].cmdCode;
+        cmdIndex = GET_CMD_INDEX(code);
+        pobj->cmds[cmdIndex].cmdCode = code;
+        pobj->cmds[cmdIndex].func = cmds[i].func;
+        pobj->count++;
+    }
+    
     return 0; 
 }
 
-int dispatch_cmds(CMDCODE cmdCode){
-    int i = 0;
-
-    for(i=0; i<gCmd.count; i++){
-        if(gCmd.cmds[i].cmdCode == cmdCode){
-            gCmd.cmds[i].func();
-        }
+int dispatch_cmds(CMD_CODES cmdCode, void *args){
+    int cmdIdx     = 0;
+    PCMD_INFO pobj = &gCmd;
+    
+    cmdIdx = GET_CMD_INDEX(cmdCode);
+    if (0 == pobj->cmds[cmdIdx].func)
+    {
+        printf("Dont support this cmd..\n");
+        return -1;
     }
-
+    pobj->cmds[cmdIdx].func(args); 
+    
     return 0;
 }
 

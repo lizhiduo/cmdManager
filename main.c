@@ -12,10 +12,8 @@
 #include "common.h"
 #include "init.h"
 
-//extern void gpio_init();
-//extern void spi_init();
-
-static void sys_init(){
+static void sys_init()
+{
     init_fn_t *fn;
 
     for(fn=&__start_init_sec; fn<&__stop_init_sec; fn++){
@@ -23,17 +21,12 @@ static void sys_init(){
     }
 }
 
-int main(){
-   
-//    gpio_init();
-//    spi_init();
+int main()
+{
     sys_init();
 
-    dispatch_cmds(GPIO_HIGH);
-    dispatch_cmds(SPI_START);
-    while(1)
-    {
-        sleep(2);
-    }
+    dispatch_cmds(GPIO_HIGH, 0);
+    dispatch_cmds(SPI_START, 0);
+    
     return 0;
 }

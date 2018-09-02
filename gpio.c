@@ -11,14 +11,14 @@
 #include "common.h"
 #include "init.h"
 
-static int gpio_high(){
+static int gpio_high(void *args){
     
     printf("[%s][%s][%d]\n", __FILE__, __func__, __LINE__);
     
     return 0;
 }
 
-static int gpio_low(){
+static int gpio_low(void *args){
     
     printf("[%s][%s][%d]\n", __FILE__, __func__, __LINE__);
 
@@ -26,6 +26,8 @@ static int gpio_low(){
 }
 
 CMD gpio_cmds[] = {
+    {TEST_BEGIN, gpio_high},
+    {TEST_END, gpio_low},
     {GPIO_HIGH, gpio_high},
     {GPIO_LOW, gpio_low},
 };

@@ -9,23 +9,28 @@
 #define _CMD_H
 
 #include "common.h"
+#include "cmdCtl.h"
+#include "cmdInfo.h"
 
-#define MAX_CMD_CNT 10
+#define CALLBACK
+#define INDEX_BASE (65)
+#define MAX_CMD_CNT (10)
+#define CMD_BASE    (26)
 
-typedef struct tag_cmd{
-    CMDCODE cmdCode;
-    int (*func)();
+#define GET_CMD_INDEX(code) \
+        (((CMDC_GET_TYPE(code) - INDEX_BASE)) * MAX_CMD_CNT) \
+         + CMDC_GET_NR(code)
+
+typedef int (CALLBACK *CMD_EXE) (void *);
+
+typedef struct tagCMD
+{
+    CMD_CODES cmdCode;
+    CMD_EXE func;
 }CMD;
 
 
-typedef struct tag_cmdInfo{
-    CMD cmds[MAX_CMD_CNT];
-    int count;
-}CMDINFO;
-
-CMDINFO gCmd;
-
 int register_cmds(CMD cmds[], int num);
-int dispatch_cmds(CMDCODE cmdCode);
+int dispatch_cmds(CMD_CODES cmdCode, void *args);
 
 #endif

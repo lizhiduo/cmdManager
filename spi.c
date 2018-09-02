@@ -11,14 +11,14 @@
 #include "common.h"
 #include "init.h"
 
-static int spi_start(){
+static int spi_start(void *args){
     
     printf("[%s][%s][%d]\n", __FILE__, __func__, __LINE__);
     
     return 0;
 }
 
-static int spi_stop(){
+static int spi_stop(void *args){
     
     printf("[%s][%s][%d]\n", __FILE__, __func__, __LINE__);
 
