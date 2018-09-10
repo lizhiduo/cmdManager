@@ -37,5 +37,5 @@ void gpio_init(){
     register_cmds(gpio_cmds, ARRAY_SIZE(gpio_cmds)); 
 }
 
-DECLARE_INIT(gpio_init);
+DECLARE_INIT0(gpio_init);
 

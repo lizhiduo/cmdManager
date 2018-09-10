@@ -35,5 +35,5 @@ void spi_init(){
     register_cmds(spi_cmds, ARRAY_SIZE(spi_cmds)); 
 }
 
-DECLARE_INIT(spi_init);
+DECLARE_INIT0(spi_init);
 

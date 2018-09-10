@@ -5,7 +5,7 @@ TAGET=test
 
 #SRCS=$(wildcard *.c)
 #SRCS=main.c cmd.c gpio.c spi.c
-SRCS=main.c cmd.c spi.c gpio.c
+SRCS=main.c cmd.c spi.c gpio.c init.c
 
 OBJS=$(SRCS:.c=.o)
 
