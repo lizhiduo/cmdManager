@@ -11,7 +11,7 @@ OBJS=$(SRCS:.c=.o)
 
 $(TAGET) : $(OBJS)
 	@echo $(OBJS)
-	$(CC) -o $@ $^
+	$(CC) -T sec.lds -o $@ $^
 
 clean:
 	rm -rf $(TAGET) $(OBJS)
